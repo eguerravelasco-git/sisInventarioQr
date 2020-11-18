@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'ESPOCH-CISSEM | ',
+    'title_prefix' => 'CISSME-ESPOCH | ',
     'title_postfix' => '',
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>ESPOCH</b> CISSEM',
+    'logo' => 'CISSME-ESPOCH',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'CISSEM',
+    'logo_img_alt' => 'CISSME',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,13 +188,13 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'Inicio',
 
     'logout_url' => 'logout',
 
     'login_url' => 'login',
 
-    'register_url' => 'register',
+    'register_url' => 'Registrese',
 
     'password_reset_url' => 'password/reset',
 
@@ -239,7 +239,7 @@ return [
         ],
         [
             'text'        => 'Escritorio',
-            'url'         => 'home',
+            'url'         => 'Inicio',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
