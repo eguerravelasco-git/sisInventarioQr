@@ -12,7 +12,7 @@
 
 
                 
-                    <form action="{{ route('role.update', $role->id)}}" method="POST">
+                    <form action="{{ route('role.update', $roles ?? ''->id)}}" method="POST">
                      @csrf
                      @method('PUT')
 
@@ -25,7 +25,7 @@
                             id="name" 
                             placeholder="Name"
                             name="name"
-                            value="{{ old('name', $role->name)}}"
+                            value="{{ old('name', $role ?? ''->name)}}"
                             >
                           </div>
                           <div class="form-group">                            
@@ -34,13 +34,13 @@
                             id="slug" 
                             placeholder="Slug"
                             name="slug"
-                            value="{{ old('slug' , $role->slug)}}"
+                            value="{{ old('slug' , $role ?? ''->slug)}}"
                             >
                           </div>
 
                           <div class="form-group">
                             
-                            <textarea class="form-control" placeholder="Descripcion" name="descripcion" id="descripcion" rows="3">{{old('descripcion', $role->descripcion)}}</textarea>
+                            <textarea class="form-control" placeholder="Descripcion" name="descripcion" id="descripcion" rows="3">{{old('descripcion', $role ?? ''->descripcion)}}</textarea>
                           </div>
 
                           <hr>
@@ -48,7 +48,7 @@
                           <h3>Full Access</h3>
                           <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" id="fullaccessyes" name="full-access" class="custom-control-input" value="si"
-                            @if ( $role['full-access']=="si") 
+                            @if ( $role ?? ''['full-access']=="si") 
                               checked 
                             @elseif (old('full-access')=="si") 
                               checked 
@@ -61,7 +61,7 @@
                           <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" id="fullaccessno" name="full-access" class="custom-control-input" value="no" 
                             
-                            @if ( $role['full-access']=="no") 
+                            @if ( $role ?? ''['full-access']=="no") 
                               checked 
                             @elseif (old('full-access')=="no") 
                               checked 
@@ -75,39 +75,8 @@
                           <hr>
 
 
-                          <h3>Permission List</h3>
-
-
-                          @foreach($permissions as $permission)
-
+                                               
                           
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" 
-                            class="custom-control-input" 
-                            id="permission_{{$permission->id}}"
-                            value="{{$permission->id}}"
-                            name="permission[]"
-
-                            @if( is_array(old('permission')) && in_array("$permission->id", old('permission'))    )
-                            checked
-
-                            @elseif( is_array($permission_role) && in_array("$permission->id", $permission_role)    )
-                            checked
-
-                            @endif
-                            >
-                            <label class="custom-control-label" 
-                                for="permission_{{$permission->id}}">
-                                {{ $permission->id }}
-                                - 
-                                {{ $permission->name }} 
-                                <em>( {{ $permission->descripcion }} )</em>
-                            
-                            </label>
-                          </div>
-
-
-                          @endforeach
                           <hr>
                           <input class="btn btn-primary" type="submit" value="Save">
 

@@ -18,6 +18,7 @@ class CreateCategoriasTable extends Migration
             $table->string('nombre');
             $table->text('descripcion')->nullable();  
             $table->boolean('estado');
+            $table->timestamps();
            
         });
     }

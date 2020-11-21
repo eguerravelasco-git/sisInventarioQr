@@ -31,9 +31,9 @@ class RoleController extends Controller
     {
         //Gate::authorize('haveaccess','role.create');
 
-        $permissions = Permission::get();
+        //$permissions = Permission::get();
 
-        return view('role.create', compact('permissions'));
+        return view('role.create');
 
 
     }
@@ -58,7 +58,7 @@ class RoleController extends Controller
         
         //if ($request->get('permission')) {
             //return $request->all();
-            $role->permissions()->sync($request->get('permission'));
+            //$role->permissions()->sync($request->get('permission'));
         //}
         return redirect()->route('role.index')
             ->with('status_success','Role creado Exitosamente'); 
@@ -71,7 +71,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    /*public function show(Role $role)
     {
         //$this->authorize('haveaccess','role.show');
 
@@ -90,7 +90,7 @@ class RoleController extends Controller
 
 
         return view('role.view', compact('permissions','role','permission_role'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -102,21 +102,21 @@ class RoleController extends Controller
     {   
 
         //$this->authorize('haveaccess','role.edit');
-        $permission_role=[];
+        $role=[];
 
-        foreach($role->permissions as $permission) {
-            $permission_role[]=$permission->id; 
+        foreach($role as $permission) {
+            $role[]=$permission->id; 
         }
         //return   $permission_role;
 
 
         //return $role;
-        $permissions = Permission::get();
+        //$permissions = Permission::get();
 
 
 
 
-        return view('role.edit', compact('permissions','role','permission_role'));
+        return view('role.edit');
         
     }
 
@@ -140,7 +140,7 @@ class RoleController extends Controller
         
         //if ($request->get('permission')) {
             //return $request->all();
-            $role->permissions()->sync($request->get('permission'));
+           // $role->permissions()->sync($request->get('permission'));
         //}
         return redirect()->route('role.index')
             ->with('status_success','Role Actualizado Exitosamente'); 

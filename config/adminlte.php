@@ -256,12 +256,12 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'Equipos',
+            'text'    => 'Sistema',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Equipo',
-                    'url'  => '#',
+                    'text' => 'Categorias',
+                    'url'  => 'categoria',
                 ],
                 [
                     'text'    => 'level_one',

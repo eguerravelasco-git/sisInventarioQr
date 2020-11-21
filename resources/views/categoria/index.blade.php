@@ -5,57 +5,46 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Lista de Roles</h2></div>
+                <div class="card-header"><h2>Lista de Categorias</h2></div>
 
                 <div class="card-body">
-                <!--@can('haveaccess','role.create')-->
-                    <a href="{{route('role.create')}}" 
-                      class="btn btn-primary float-right"
-                      >Create
-                    </a>
+                
+                    <a class="btn btn-info" href="{{ route('categoria.create')}}">Nuevo</a> 
                     <br><br>
-                <!--@endcan-->
-
-                    <!--@include('custom.message')-->
-
-
-                               
-
+                             
                     <table class="table table-hover">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Nick</th>
                             <th scope="col">Descripcion</th>
-                            <th scope="col">Acceso Total</th>
+                            <th scope="col">Estado</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
                         <tbody>
                           
                             
-                            @foreach ($roles as $role)
+                            @foreach ($categorias as $categoria)
                             <tr>
-                                <th scope="row">{{ $role->id}}</th>
-                                <td>{{ $role->name}}</td>
-                                <td>{{ $role->slug}}</td>
-                                <td>{{ $role->descripcion}}</td>
-                                <td>{{ $role['full-access']}}</td>                            
+                                <th scope="row">{{ $categoria->id}}</th>
+                                <td>{{ $categoria->nombre}}</td>
+                                <td>{{ $categoria->descripcion}}</td>
+                                <td>{{ $categoria->estado}}</td>                            
                                 <td> 
                                 <!--@can('haveaccess','role.show')-->
-                                  <a class="btn btn-info" href="{{ route('role.show',$role->id)}}">Ver</a> 
+                                  <a class="btn btn-info" href="{{ route('categoria.show',$categoria->id)}}">Ver</a> 
                                 <!--@endcan--> 
                                 </td>  
                                 <td> 
                                 
-                                  <a class="btn btn-success" href="{{ route('role.edit',$role->id)}}">Editar</a> 
+                                  <a class="btn btn-success" href="{{ route('categoria.edit',$categoria->id)}}">Editar</a> 
                                 
                                 </td>  
 
                                 <td> 
                                 
-                                  <form action="{{ route('role.destroy',$role->id)}}" method="POST">
+                                  <form action="{{ route('categoria.destroy',$categoria->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">Eliminar</button>
@@ -73,7 +62,7 @@
                         </tbody>
                       </table>
 
-                      {{ $roles->links() }}
+                      {{ $categorias->links() }}
 
 
 

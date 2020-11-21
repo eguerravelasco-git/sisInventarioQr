@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Permission\Models\Role;
-use App\Permission\Models\Permission;
+//use App\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -19,8 +19,8 @@ class PermissionInfoSeeder extends Seeder
         //truncate tables
         DB::statement("SET foreign_key_checks=0");
             DB::table('role_user')->truncate();
-            DB::table('permission_role')->truncate();
-            Permission::truncate();
+            //DB::table('permission_role')->truncate();
+           // Permission::truncate();
             Role::truncate();
         DB::statement("SET foreign_key_checks=1");
 
@@ -59,7 +59,7 @@ class PermissionInfoSeeder extends Seeder
         $useradmin->roles()->sync([ $roladmin->id ]);
       
         
-        //permission
+       /* //permission
         $permission_all = [];
 
         
@@ -166,7 +166,7 @@ class PermissionInfoSeeder extends Seeder
         
         
         
-        $roladmin->permissions()->sync( $permission_all);
+        $roladmin->permissions()->sync( $permission_all);*/
         
     }
 }
