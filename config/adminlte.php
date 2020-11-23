@@ -255,57 +255,74 @@ return [
             'url'  => 'role',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'    => 'Equipos',
+            'text'    => 'Registros',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Equipo',
+                    'text' => 'Departamentos',
+                    'url'  => '#',
+
+                ],
+
+               
+                [
+                    'text' => 'Cargos',
                     'url'  => '#',
                 ],
+
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Personas',
+                    'url'  => '#',
                 ],
+
                 [
-                    'text' => 'level_one',
+                    'text' => 'Acta de Entrega',
                     'url'  => '#',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+
+         [
+            'text'    => 'Equipo',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Equipos',
+                    'url'  => '#',
+
+                ],
+
+               
+                [
+                    'text' => 'Categorías',
+                    'url'  => '#',
+                ],
+
+                [
+                    'text' => 'Mantenimientos',
+                    'url'  => '#',
+                ],
+
+                
+            ],
+        ],
+
+
+        ['header' => 'Informacion'],
         [
-            'text'       => 'important',
+            'text'       => 'Manual',
             'icon_color' => 'red',
             'url'        => '#',
         ],
         [
-            'text'       => 'warning',
+            'text'       => 'Ayuda',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],
         [
-            'text'       => 'information',
+            'text'       => 'Acerca de',
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
