@@ -22,6 +22,7 @@ class CreateEquiposTable extends Migration
             $table->text('descripcion')->nullable();
             $table->string('codigoqr');     
             $table->boolean('estado');
+            $table->timestamps();
             
         });
     }

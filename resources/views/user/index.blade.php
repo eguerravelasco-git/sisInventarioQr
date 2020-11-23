@@ -40,23 +40,23 @@
                                 
                                 </td>
                                 <td> 
-                                @can('view',[$user, ['user.show','userown.show'] ])
+                                
                                   <a class="btn btn-info" href="{{ route('user.show',$user->id)}}">Show</a> 
-                                @endcan
+                                
                                 </td>  
                                 <td> 
-                                @can('view', [$user, ['user.edit','userown.edit'] ])
+                                
                                   <a class="btn btn-success" href="{{ route('user.edit',$user->id)}}">Editar</a> 
-                                @endcan
+                                
                                 </td>  
                                 <td> 
-                                @can('haveaccess','user.destroy')
+                                
                                   <form action="{{ route('user.destroy',$user->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">Eliminar</button>
                                   </form>
-                                @endcan
+                               
                                   
 
                                 </td>  

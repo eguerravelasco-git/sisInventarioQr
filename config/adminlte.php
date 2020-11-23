@@ -263,6 +263,11 @@ return [
                     'text' => 'Categorias',
                     'url'  => 'categoria',
                 ],
+
+                [
+                    'text' => 'Equipos',
+                    'url'  => 'equipo',
+                ],
                 [
                     'text'    => 'level_one',
                     'url'     => '#',

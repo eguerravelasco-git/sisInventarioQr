@@ -38,6 +38,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/role', 'RoleController')->names('role');
 Route::resource('/categoria', 'CategoriaController')->names('categoria');
+Route::resource('/equipo', 'EquipoController')->names('equipo');
 
 Route::resource('/user', 'UserController', ['except'=>[
     'create','store']])->names('user');

@@ -31,15 +31,13 @@
                             </textarea>
                           </div>
 
-                          <hr>
-
-                          <h3>Estado</h3>
-                           <div class="form-group">                            
+                         
+                          <div class="form-group" hidden="{ display: none; }">                            
                             <input type="text" class="form-control" 
                             id="estado" 
                             placeholder="Estado"
                             name="estado"
-                            value="{{ old('estado')}}"
+                            value="1"
                             >
                           </div>                         
 

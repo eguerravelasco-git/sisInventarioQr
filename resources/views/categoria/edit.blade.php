@@ -12,7 +12,7 @@
 
 
                 
-                    <form action="{{ route('categoria.update', $categorias ?? ''->id)}}" method="POST">
+                    <form action="{{ route('categoria.update', $categorias->id)}}" method="POST">
                      @csrf
                      @method('PUT')
 
@@ -23,31 +23,34 @@
                          <div class="form-group">                            
                             <input type="text" class="form-control" 
                             id="nombre" 
-                            placeholder="Nombre"
+                            placeholder="Name"
                             name="nombre"
-                            value="{{ old('nombre', $categoria ?? ''->nombre)}}"
+                            value="{{ old('nombre', $categorias->nombre)}}"
                             >
                           </div>
-                          
-
-                          <div class="form-group">
-                            
-                            <textarea class="form-control" placeholder="Descripcion" name="descripcion" id="descripcion" rows="3">{{old('descripcion', $categoria ?? ''->descripcion)}}</textarea>
+                          <div class="form-group">                            
+                            <input type="text" 
+                            class="form-control" 
+                            id="descripcion" 
+                            placeholder="descripcion"
+                            name="descripcion"
+                            value="{{ old('descripcion' , $categorias->descripcion)}}"
+                            >
                           </div>
-
-                          <h3>Estado</h3>
-                           <div class="form-group">                            
-                            <input type="text" class="form-control" 
+                          <div class="form-group">                            
+                            <input type="text" 
+                            class="form-control" 
                             id="estado" 
-                            placeholder="Estado"
+                            placeholder="estado"
                             name="estado"
-                            value="{{ old('estado')}}"
+                            value="{{ old('estado' , $categorias->estado)}}"
                             >
-                          </div>              
-
-                          <hr>
+                          </div>
+                          
+                          
 
                           
+                          <hr>
                           <input class="btn btn-primary" type="submit" value="Save">
 
 

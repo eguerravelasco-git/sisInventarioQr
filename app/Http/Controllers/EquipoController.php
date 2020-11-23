@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Sistema\Models\Equipo;
 use App\Sistema\Models\Categoria;
-use Illuminate\Support\Facades\Gate;
+//use Illuminate\Support\Facades\Gate;
 
 
 
-class CategoriaController extends Controller
+class EquipoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-       //$nombre = $request->get('nombre');
-       $categorias = Categoria::orderBy('nombre')->paginate(10);
-        return view('categoria.index',compact('categorias'));
+        
+        $equipos =  Equipo::with('categorias')->orderBy('id','Desc')->paginate(10);
+        
+        return view('equipo.index',compact('equipos'));
     }
 
     /**
@@ -28,7 +30,11 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categoria.create');
+        $categorias= Categoria::orderBy('nombre')->get();
+
+        //return $roles;
+
+        return view('equipo.create', compact('categorias', 'equipos'));
     }
 
     /**
@@ -39,11 +45,15 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $cat = new Categoria();
-        $cat->nombre        = $request->nombre;
-        $cat->descripcion   = $request->descripcion;
-        $cat->estado        = $request->estado;
-        $cat->save();        
+        $eq = new Equipo();
+        $eq->categoria_id  = $request->categorias;
+        $eq->nombre        = $request->nombre;
+        $eq->modelo        = $request->modelo;
+        $eq->serie        = $request->serie;
+        $eq->descripcion   = $request->descripcion;
+        $eq->codigoqr        = $request->codigoqr;
+        $eq->estado        = $request->estado;
+        $eq->save();        
         
             
 
@@ -60,8 +70,7 @@ class CategoriaController extends Controller
 
         Categoria::create($request->all())->save();*/
 
-        return redirect()->route('categoria.index')->with('datos','Registro creado correctamente!');
-
+        return redirect()->route('equipo.index')->with('datos','Registro creado correctamente!');
     }
 
     /**
@@ -83,9 +92,7 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-
-        $categorias= Categoria::where('id',$id)->firstOrFail();
-        return view('categoria.edit', compact('categorias'));
+        //
     }
 
     /**
@@ -97,29 +104,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cat= Categoria::findOrFail($id);
-        
-
-        $request->validate([
-            'nombre' => 'required|max:50|unique:categorias,nombre,'.$cat->id,
-            'descripcion' => 'required|max:50|unique:categorias,descripcion,'.$cat->id,
-            'estado' => 'required|max:50|:categorias,estado,'.$cat->id,
-
-        ]);
-
-
-        /*$cat->nombre        = $request->nombre;
-        $cat->slug          = $request->slug;
-        $cat->descripcion   = $request->descripcion;
-        $cat->save();  
-   
-        return $cat;
-        */
-        $cat->fill($request->all())->save();
-
-        //return $cat;
-        
-        return redirect()->route('categoria.index')->with('datos','Registro actualizado correctamente!');
+        //
     }
 
     /**
