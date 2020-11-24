@@ -20,7 +20,11 @@ class PermissionInfoSeeder extends Seeder
         DB::statement("SET foreign_key_checks=0");
             DB::table('role_user')->truncate();
             //DB::table('permission_role')->truncate();
+<<<<<<< HEAD
            // Permission::truncate();
+=======
+            //Permission::truncate();
+>>>>>>> e57dee95c186fcfff228142b867161c0ac4ca1e0
             Role::truncate();
         DB::statement("SET foreign_key_checks=1");
 
@@ -59,7 +63,11 @@ class PermissionInfoSeeder extends Seeder
         $useradmin->roles()->sync([ $roladmin->id ]);
       
         
+<<<<<<< HEAD
        /* //permission
+=======
+        /*//permission
+>>>>>>> e57dee95c186fcfff228142b867161c0ac4ca1e0
         $permission_all = [];
 
         
