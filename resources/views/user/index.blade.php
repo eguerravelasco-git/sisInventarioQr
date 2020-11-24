@@ -8,9 +8,12 @@
                 <div class="card-header"><h2>Lista de Usuarios</h2></div>
 
                 <div class="card-body">
-
-
+                    <a href="{{route('user.create')}}" 
+                      class="btn btn-primary float-right"
+                      >Nuevo
+                    </a>
                     <br><br>
+
 
                     @include('custom.message')
 
@@ -25,8 +28,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          
-                            
+                                                      
                             @foreach ($users as $user)
                             
                             <tr>
@@ -39,11 +41,7 @@
                                 @endisset
                                 
                                 </td>
-                                <td> 
                                 
-                                  <a class="btn btn-info" href="{{ route('user.show',$user->id)}}">Show</a> 
-                                
-                                </td>  
                                 <td> 
                                 
                                   <a class="btn btn-success" href="{{ route('user.edit',$user->id)}}">Editar</a> 
@@ -62,9 +60,8 @@
                                 </td>  
                             </tr>      
                             @endforeach
-                            
-
-                            
+                         
+                        
                           
                          
                         </tbody>

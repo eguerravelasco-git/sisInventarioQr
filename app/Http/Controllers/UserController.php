@@ -29,8 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //$this->authorize('create', User::class);
-        //return 'Create';
+        $roles= Role::orderBy('name')->get();
+
+        return view('user.create', compact('roles', 'user'));
     }
 
     /**
@@ -41,7 +42,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pas=$request->password;
+        $us= new User();
+        //$us->role_id  = $request->roles;
+        $us->name        = $request->name;
+        $us->email        = $request->email;
+        $us->password        = password_hash($pas, PASSWORD_DEFAULT);
+        $us->save(); 
+
+        $us->roles()->sync($request->get('roles'));       
+
+        return redirect()->route('user.index')->with('datos','Registro creado correctamente!');
     }
 
     /**

@@ -8,15 +8,15 @@
                 <div class="card-header"><h2>Lista de Roles</h2></div>
 
                 <div class="card-body">
-                <!--@can('haveaccess','role.create')-->
+                
                     <a href="{{route('role.create')}}" 
                       class="btn btn-primary float-right"
-                      >Create
+                      >Nuevo
                     </a>
                     <br><br>
-                <!--@endcan-->
+               
 
-                    <!--@include('custom.message')-->
+                    @include('custom.message')
 
 
                                

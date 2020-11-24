@@ -31,11 +31,7 @@
                                 <td>{{ $categoria->nombre}}</td>
                                 <td>{{ $categoria->descripcion}}</td>
                                 <td>{{ $categoria->estado}}</td>                            
-                                <td> 
-                                
-                                  <a class="btn btn-info" href="{{ route('categoria.show',$categoria->id)}}">Ver</a> 
-                                
-                                </td>  
+                                 
                                 <td> 
                                 
                                   <a class="btn btn-success" href="{{ route('categoria.edit',$categoria->id)}}">Editar</a> 

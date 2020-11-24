@@ -17,7 +17,7 @@ class CategoriaController extends Controller
     public function index()
     {
        //$nombre = $request->get('nombre');
-       $categorias = Categoria::orderBy('nombre')->paginate(10);
+       $categorias = Categoria::where('estado','=',1)->paginate(10);
         return view('categoria.index',compact('categorias'));
     }
 
@@ -31,7 +31,7 @@ class CategoriaController extends Controller
         return view('categoria.create');
     }
 
-    /**
+       /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -47,20 +47,8 @@ class CategoriaController extends Controller
         
             
 
-        //Categoria::create($request->all());
-
-        
-        /*$request->validate([
-            'nombre' => 'required|max:50|unique:categorias,nombre',
-            'descripcion' => 'required|max:50|unique:categorias,descripcion',
-            'estado'=>'required|max:1|unique:categorias,estado',
-
-        ]);
-        //$cat->fill($request->all())->save();
-
-        Categoria::create($request->all())->save();*/
-
-        return redirect()->route('categoria.index')->with('datos','Registro creado correctamente!');
+       
+        return redirect()->route('categoria.index')->with('status_success','Registro creado correctamente!');
 
     }
 
@@ -107,19 +95,12 @@ class CategoriaController extends Controller
 
         ]);
 
-
-        /*$cat->nombre        = $request->nombre;
-        $cat->slug          = $request->slug;
-        $cat->descripcion   = $request->descripcion;
-        $cat->save();  
-   
-        return $cat;
-        */
+    
         $cat->fill($request->all())->save();
 
-        //return $cat;
         
-        return redirect()->route('categoria.index')->with('datos','Registro actualizado correctamente!');
+        
+        return redirect()->route('categoria.index')->with('status_success','Registro actualizado correctamente!');
     }
 
     /**
@@ -128,8 +109,12 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Categoria $categoria)
     {
-        //
+       
+        $categoria->delete();
+
+        return redirect()->route('categoria.index')
+            ->with('status_success','Categoria Eliminada Exitosamente'); 
     }
 }
